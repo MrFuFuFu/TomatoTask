@@ -1,0 +1,17 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context=".BreakActivity">
+    <ProgressBar android:id="@+id/breakBar"
+        style="?android:attr/progressBarStyleHorizontal" android:layout_width="110dp"
+        android:layout_height="50dp" android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+    <TextView android:id="@+id/breakTxtView" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:text="aaaaaa"
+        android:layout_above="@id/breakBar" android:layout_centerHorizontal="true" />
+    <Button android:id="@+id/ReturnButton" android:layout_width="match_parent"
+        android:layout_height="80dp" android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" android:visibility="invisible"
+        android:background="@color/ShanLanSe"
+        android:text="开启下一个番茄？"
+         />
+</RelativeLayout>

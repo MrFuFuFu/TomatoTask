@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+    android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.tomatotask.Task.DateLine
+         android:textColor="#ffff0000"
+        android:gravity="center" android:id="@id/editdate" android:background="@drawable/shapetop"
+        android:layout_width="300.0dip" android:layout_height="30.0dip"
+         android:layout_centerHorizontal="true" />
+    <com.android.tomatotask.Task.DrawLine android:textSize="18.0sp"
+        android:textColor="#ff000000" android:gravity="top" android:id="@id/edittexttwo"
+        android:background="@drawable/shape" android:scrollbars="vertical"
+        android:layout_width="300.0dip" android:layout_height="100.0dip"
+        android:layout_below="@id/editdate" android:layout_centerHorizontal="true"
+        android:lineSpacingExtra="3.0dip" />
+    
+    <!--<com.android.tomatotask.Task.DateLine android:textColor="#ffff0000"
+        android:gravity="center" android:id="@id/editdate" android:background="@drawable/shapetop"
+        android:layout_width="300.0dip" android:layout_height="30.0dip"
+        android:layout_marginTop="10.0dip" android:layout_centerHorizontal="true" />
+    <com.android.tomatotask.Task.DrawLine android:textSize="18.0sp"
+        android:textColor="#ff000000" android:gravity="top" android:id="@id/edittexttwo"
+        android:background="@drawable/shape" android:scrollbars="vertical"
+        android:layout_width="300.0dip" android:layout_height="100.0dip"
+        android:layout_below="@id/editdate" android:layout_centerHorizontal="true"
+        android:lineSpacingExtra="3.0dip" />
+    <Button android:textColor="#ffffffff" android:id="@id/editbutton"
+        android:background="@drawable/button" android:layout_width="130.0dip"
+        android:layout_height="40.0dip" android:layout_marginTop="30.0dip"
+        android:text="取消" android:layout_below="@id/edittexttwo"
+        android:layout_alignRight="@id/edittexttwo" />
+    <Button android:textColor="#ffffffff" android:id="@id/editbutton2"
+        android:background="@drawable/button" android:layout_width="130.0dip"
+        android:layout_height="40.0dip" android:text="保存" android:layout_below="@id/edittexttwo"
+        android:layout_alignBaseline="@id/editbutton" android:layout_alignLeft="@id/edittexttwo" />  -->
+</RelativeLayout>

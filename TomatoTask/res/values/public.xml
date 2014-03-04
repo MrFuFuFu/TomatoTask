@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <public type="drawable" name="ic_launcher" id="0x7f020003" />
+    <public type="drawable" name="bg" id="0x7f020000" />
+    <public type="drawable" name="big" id="0x7f020001" />
+    <public type="drawable" name="button" id="0x7f020002" />
+    <public type="drawable" name="number" id="0x7f020004" />
+    <public type="drawable" name="shape" id="0x7f020005" />
+    <public type="drawable" name="shapetop" id="0x7f020006" />
+    <public type="drawable" name="showbottom" id="0x7f020007" />
+    <public type="drawable" name="showtop" id="0x7f020008" />
+    <public type="drawable" name="smallbutton1" id="0x7f020009" />
+    <public type="drawable" name="smallbutton2" id="0x7f02000a" />
+    <public type="drawable" name="stylebutton1" id="0x7f02000b" />
+    <public type="drawable" name="stylebutton2" id="0x7f02000c" />
+    <public type="drawable" name="topbutton" id="0x7f02000d" />
+    <public type="layout" name="activity_main" id="0x7f030000" />
+    <public type="layout" name="showedit" id="0x7f030002" />
+    <public type="layout" name="showtypes" id="0x7f030003" />
+    <public type="layout" name="style" id="0x7f030004" />
+    <!-- <public type="layout" name="writedown" id="0x7f030005" /> -->
+    <public type="dimen" name="activity_horizontal_margin" id="0x7f040000" />
+    <public type="dimen" name="activity_vertical_margin" id="0x7f040001" />
+    <public type="string" name="app_name" id="0x7f050000" />
+    <public type="string" name="action_settings" id="0x7f050001" />
+    <!--<public type="string" name="hello_world" id="0x7f050002" />  -->
+    <public type="style" name="AppBaseTheme" id="0x7f060000" />
+    <public type="style" name="AppTheme" id="0x7f060001" />
+    <public type="menu" name="main" id="0x7f070000" />
+    <public type="id" name="topButton" id="0x7f080000" />
+    <public type="id" name="number" id="0x7f080001" />
+    <public type="id" name="listview" id="0x7f080002" />
+    <public type="id" name="adLayout" id="0x7f080003" />
+    <public type="id" name="editdate" id="0x7f080004" />
+    <public type="id" name="edittexttwo" id="0x7f080005" />
+    <public type="id" name="editbutton" id="0x7f080006" />
+    <public type="id" name="editbutton2" id="0x7f080007" />
+    <public type="id" name="contentTextView" id="0x7f080008" />
+    <public type="id" name="dateTextView" id="0x7f080009" />
+    <public type="id" name="smallbutton2" id="0x7f08000a" />
+    <public type="id" name="smallbutton1" id="0x7f08000b" />
+    <public type="id" name="changedateview" id="0x7f08000c" />
+    <public type="id" name="changecontentview" id="0x7f08000d" />
+    <public type="id" name="stylebutton1" id="0x7f08000e" />
+    <public type="id" name="stylebutton2" id="0x7f08000f" />
+    <public type="id" name="writedate" id="0x7f080010" />
+    <public type="id" name="edittext" id="0x7f080011" />
+    <public type="id" name="button" id="0x7f080012" />
+    <public type="id" name="button2" id="0x7f080013" />
+    <public type="id" name="action_settings" id="0x7f080014" />
+</resources>

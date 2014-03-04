@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:descendantFocusability="blocksDescendants"
+    android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.tomatotask.Task.DateLine
+        android:textColor="#ffff0000" android:gravity="center" android:id="@id/changedateview"
+        android:background="@drawable/shapetop" android:layout_width="300.0dip"
+        android:layout_height="27.0dip" android:layout_marginTop="8.0dip"
+        android:layout_centerHorizontal="true" />
+    <com.android.tomatotask.Task.TextViewLine
+        android:textSize="18.0sp" android:textColor="#ff000000" android:id="@id/changecontentview"
+        android:background="@drawable/shape" android:layout_width="300.0dip"
+        android:layout_height="wrap_content" android:minHeight="68.0dip"
+        android:layout_below="@id/changedateview"
+        android:layout_centerHorizontal="true" android:lineSpacingExtra="6.0dip" />
+    <Button android:id="@id/stylebutton1" android:background="@drawable/stylebutton1"
+        android:focusable="false" android:layout_width="27.0dip"
+        android:layout_height="27.0dip" android:layout_marginLeft="7.0dip"
+        android:layout_above="@id/changecontentview" android:layout_alignLeft="@id/changecontentview" />
+    <Button android:id="@id/stylebutton2" android:background="@drawable/stylebutton2"
+        android:focusable="false" android:layout_width="27.0dip"
+        android:layout_height="27.0dip" android:layout_marginRight="7.0dip"
+        android:layout_above="@id/changecontentview" android:layout_alignRight="@id/changecontentview" />
+</RelativeLayout>

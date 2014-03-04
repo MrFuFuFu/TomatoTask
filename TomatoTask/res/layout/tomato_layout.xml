@@ -1,0 +1,34 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context=".TomatoActivity">
+    <ImageView android:id="@+id/imageTomato" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:src="@drawable/maintomato"
+        android:layout_centerInParent="true" android:scaleType="center" />
+    <TextView android:id="@+id/tomatoTxtView" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:layout_below="@id/imageTomato" android:layout_centerInParent="true"
+        android:clickable="true" android:textSize="15sp" />
+    <TextView 
+        android:id="@+id/allTomatoCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:textSize="30sp"
+        android:text="总计:0"
+        android:layout_marginBottom="20.0dip"
+        android:layout_marginLeft="20.0dip"
+        />
+    <TextView 
+        android:id="@+id/todayTomatoCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/allTomatoCount"
+        android:layout_marginLeft="20.0dip"
+        android:textSize="30sp"
+        android:text="今日:0"
+        />
+    <!-- <com.android.tomatotask.CircleProgressBar android:id="@+id/tomatoProgressBar" 
+        android:layout_width="300dp" android:layout_height="300dp" android:layout_centerInParent="true" 
+        /> -->
+</RelativeLayout>

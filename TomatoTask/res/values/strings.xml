@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">番茄Task</string>
+    <string name="action_settings">设置</string>
+    <string name="tomatocharSequence">新番茄开始,小宇宙爆发吧!骚年!!</string>
+    <string name="EndTask">番茄结束</string>
+    <string name="startTomato">开始！</string>
+    <string name="breakcharSequence">休息时间开始,喝水去吧,小伙伴!</string>
+    <string name="EndBreak">休息时间到,小伙伴,拿着锄头,继续耕地吧!</string>
+    <string name="tv_fqsj">番茄时间</string>
+</resources>
