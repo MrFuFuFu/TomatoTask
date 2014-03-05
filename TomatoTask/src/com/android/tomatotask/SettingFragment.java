@@ -1,6 +1,7 @@
 package com.android.tomatotask;
 
 import android.os.Bundle;
+import android.preference.PreferenceFragment;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
@@ -35,6 +36,19 @@ public class SettingFragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		LayoutInflater inflater = getActivity().getLayoutInflater();
 		mMainView = inflater.inflate(R.layout.setting_layout,
 				(ViewGroup) getActivity().findViewById(R.id.viewpager), false);
@@ -56,14 +70,6 @@ public class SettingFragment extends Fragment {
 		sbRest.setOnSeekBarChangeListener(new SeekBarListener(tvRest, 1, 1));
 		sbLongRest.setOnSeekBarChangeListener(new SeekBarListener(tvLongRest,
 				5, 5));
-//		// –ﬁ∏ƒ◊÷ÃÂ
-//		Typeface fontFace = Typeface.createFromAsset(getActivity().getAssets(),
-//				"fonts/Roboto-Thin.ttf");
-//		tvTick.setTypeface(fontFace);
-//		tvRest.setTypeface(fontFace);
-//		tvLongRest.setTypeface(fontFace);
-//		chkShake.setTypeface(fontFace);
-//		chkTick.setTypeface(fontFace);
 
 		// ≈‰÷√∂¡»°
 		mySharedPreferences = getActivity().getSharedPreferences("test",
@@ -95,6 +101,22 @@ public class SettingFragment extends Fragment {
 
 	}
 
+	
+	
+//	 public static class PrefsFragement extends PreferenceFragment{  
+//	        @Override  
+//	        public void onCreate(Bundle savedInstanceState) {  
+//	            // TODO Auto-generated method stub  
+//	            super.onCreate(savedInstanceState);  
+//	            addPreferencesFromResource(R.xml.preferences);  
+//	        }  
+//	    } 
+	
+	
+	
+	
+	
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -108,6 +130,10 @@ public class SettingFragment extends Fragment {
 		}
 		return mMainView;
 	}
+	
+	
+	
+	
 
 	@Override
 	public void onStop() {

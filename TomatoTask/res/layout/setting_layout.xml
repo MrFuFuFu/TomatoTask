@@ -13,7 +13,9 @@
 		<TableRow>
 			<TextView android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="番茄时间" android:layout_span="2"></TextView>
+				android:text="番茄时间" android:layout_span="2"
+                android:textSize="15sp"
+                ></TextView>
 		</TableRow>
 		<TableRow>
 			<SeekBar android:id="@+id/sbTick"
@@ -37,6 +39,7 @@
 		<TableRow>
 			<TextView android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
+                android:textSize="15sp"
 				android:text="休息时间"></TextView>
 		</TableRow>
 		<TableRow>
@@ -58,6 +61,7 @@
 		<TableRow>
 			<TextView android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
+                android:textSize="15sp"
 				android:text="长休息时间"></TextView>
 		</TableRow>
 		<TableRow>
@@ -79,6 +83,7 @@
 		<TableRow>
 			<TextView android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
+                android:textSize="15sp"
 				android:text="开启震动"></TextView>
 			<CheckBox android:id="@+id/chkShake"
 				android:layout_width="wrap_content"
@@ -93,7 +98,8 @@
 		<TableRow>
 			<TextView android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="开启滴答生"></TextView>
+                android:textSize="15sp"
+				android:text="开启滴答声"></TextView>
 			<CheckBox android:id="@+id/chkTick"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content">
@@ -109,6 +115,7 @@
 		<TableRow>
 			<TextView android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
+                android:textSize="15sp"
 				android:text="完成提示音">
 			</TextView>
 		</TableRow>

@@ -22,8 +22,8 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
-        public static final int ShanLanSe=0x7f0a0001;
-        public static final int white=0x7f0a0000;
+        public static final int ShanLanSe=0x7f0b0001;
+        public static final int white=0x7f0b0000;
     }
     public static final class dimen {
         /**  <public type="layout" name="writedown" id="0x7f030005" /> 
@@ -156,5 +156,8 @@ public final class R {
         /**  Application theme. 
          */
         public static final int AppTheme=0x7f060001;
+    }
+    public static final class xml {
+        public static final int preferences=0x7f0a0000;
     }
 }
