@@ -6,10 +6,12 @@ import java.util.Locale;
 import java.util.Random;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,6 +30,8 @@ public class TomatoFragment extends Fragment{
 	private int todayTomatoCount;
 	private int allTomatoCount;
 
+	private Vibrator vibrator;
+	
 	public TomatoFragment() {
 		// TODO 自动生成的构造函数存根
 	}
@@ -48,6 +52,7 @@ public class TomatoFragment extends Fragment{
 		todayTomatoCountTextView.setTypeface(fontFace);
 		allTomatoCountTextView.setTypeface(fontFace);
 		
+
 
 		Log.i("MAIN", "++++++++TomatoFragment++++++++onCreate++++++++");
 		imageView.setOnClickListener(new View.OnClickListener() {

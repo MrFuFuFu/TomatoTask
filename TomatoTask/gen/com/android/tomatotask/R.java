@@ -46,8 +46,9 @@ public final class R {
         public static final int ic_launcher=0x7f020003;
         public static final int ic_launcher1=0x7f020011;
         public static final int maintomato=0x7f020012;
+        public static final int new_btn_gray=0x7f020013;
         public static final int number=0x7f020004;
-        public static final int roller=0x7f020013;
+        public static final int roller=0x7f020014;
         public static final int shape=0x7f020005;
         public static final int shapetop=0x7f020006;
         public static final int showbottom=0x7f020007;

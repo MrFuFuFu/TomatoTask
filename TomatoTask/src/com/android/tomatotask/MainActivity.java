@@ -1,48 +1,29 @@
 package com.android.tomatotask;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
 
-import com.android.tomatotask.R.string;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
-import android.R.integer;
-import android.app.ActionBar;
+import android.os.Vibrator;
 import android.app.Activity;
-import android.app.ActivityManager;
 import android.app.AlertDialog;
-import android.app.LocalActivityManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
 import android.graphics.Typeface;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.TranslateAnimation;
-import android.widget.ImageView;
-import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -65,6 +46,10 @@ public class MainActivity extends Activity implements OnClickListener {
 	private int maxProgress;// 最大进度，该值与CircleProgressBar类中的maxProgress必须相同
 	private long exitTime = 0;
 	private int[] ID;
+	private boolean showShake = true;// 震动
+	private boolean showTick = true;// 滴答声
+	
+	private Vibrator vibrator;
 	
 //	//ViewPager
 //	LocalActivityManager manager =null;
@@ -101,6 +86,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		tick = 1;//记得删除
 		rest = mySharedPreferences.getInt("rest", 5);
 		longrest = mySharedPreferences.getInt("longrest", 15);
+		// 震动和声音设置
+		 showShake = mySharedPreferences.getBoolean("showshake", true);
+		 showTick = mySharedPreferences.getBoolean("showtick", true);
 
 		//设置progressBar最大进度
 		progressBar.setMaxProgress(tick * 60);
@@ -116,6 +104,13 @@ public class MainActivity extends Activity implements OnClickListener {
 		stateFlag();
 
 	}
+//	@Override
+//	 public void onStop(){  
+//	        super.onStop();  
+//	        vibrator.cancel();  
+//	    }  
+	
+
 
 	class TimeCount extends CountDownTimer {
 		public TimeCount(long millisInFuture, long countDownInterval) {
@@ -138,6 +133,12 @@ public class MainActivity extends Activity implements OnClickListener {
 					int randow= new Random().nextInt(8);
 					animation = AnimationUtils.loadAnimation(MainActivity.this, ID[randow]);
 					textView.startAnimation(animation);
+				}
+				if (showShake) {
+					//开启震动
+					vibrator =(Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+					long [] pattern = {200,500,200,500,1200,500,200,500};   // 停止 开启 停止 开启  
+					vibrator.vibrate(pattern,-1);           //重复两次上面的pattern 如果只想震动一次，index设为-1   
 				}
 				
 				// 实例化SharedPreferences对象（第一步）
@@ -171,7 +172,8 @@ public class MainActivity extends Activity implements OnClickListener {
 			default:
 				break;
 			}
-		}
+		} 
+		
 
 		/**
 		 * 计时过程显示
@@ -223,6 +225,7 @@ public class MainActivity extends Activity implements OnClickListener {
 									public void onClick(DialogInterface dialog,
 											int which) {
 										// TODO 自动生成的方法存根
+										time.cancel();
 										MainActivity.this.finish();
 									}
 								})
@@ -246,6 +249,7 @@ public class MainActivity extends Activity implements OnClickListener {
 							Toast.LENGTH_SHORT).show();
 					exitTime = System.currentTimeMillis();
 				} else {
+					time.cancel();
 					finish();
 					System.exit(0);
 				}
@@ -267,6 +271,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		rest = mySharedPreferences.getInt("rest", 5);
 		longrest = mySharedPreferences.getInt("longrest", 15);
 		progressBar.setMaxProgress(tick * 60);
+		// 震动和声音设置
+		 showShake = mySharedPreferences.getBoolean("showshake", true);
+		 showTick = mySharedPreferences.getBoolean("showtick", true);
 		if (flag == 4) {
 			flag = 1;
 			if (flagHide) {
@@ -327,6 +334,8 @@ public class MainActivity extends Activity implements OnClickListener {
 			Intent intent = new Intent(getApplicationContext(),
 					BreakActivity.class);
 			intent.putExtra("rest", rest);
+			intent.putExtra("showShake", showShake);
+			intent.putExtra("showTick", showTick);
 			flag = 4;
 			startActivity(intent);
 			break;

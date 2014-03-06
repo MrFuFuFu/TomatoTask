@@ -1,11 +1,11 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="时间设置">
-        <com.example.helloandroid.SeekBarPreference
+        <!-- <huahua.viewpager.SeekBarPreference
             android:key="tomatoTime" android:title="番茄时间" android:dialogTitle="番茄时间"
             android:persistent="true" />
-        <com.example.helloandroid.SeekBarPreference
+        <huahua.viewpager.SeekBarPreference
             android:key="breakTime" android:title="休息时间" android:dialogTitle="休息时间"
-            android:persistent="true" />
+            android:persistent="true" /> -->
     </PreferenceCategory>
     <PreferenceCategory android:title="声音设置">
         <CheckBoxPreference android:key="startShake"

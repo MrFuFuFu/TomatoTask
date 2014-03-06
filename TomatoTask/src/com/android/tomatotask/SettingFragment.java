@@ -36,19 +36,6 @@ public class SettingFragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		LayoutInflater inflater = getActivity().getLayoutInflater();
 		mMainView = inflater.inflate(R.layout.setting_layout,
 				(ViewGroup) getActivity().findViewById(R.id.viewpager), false);

@@ -8,6 +8,7 @@ import com.android.tomatotask.MainActivity.TimeCount;
 import android.R.integer;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,6 +16,7 @@ import android.graphics.Typeface;
 import android.opengl.Visibility;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Vibrator;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -33,6 +35,10 @@ public class BreakActivity extends Activity implements OnClickListener {
 	private int timeSpan;
 	private long exitTime = 0;
 
+	private boolean showShake = true;// 震动
+	private boolean showTick = true;// 滴答声
+	private Vibrator vibrator;
+
 	public BreakActivity() {
 		// TODO 自动生成的构造函数存根
 	}
@@ -48,9 +54,11 @@ public class BreakActivity extends Activity implements OnClickListener {
 		//修改字体
 		Typeface fontFace = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Thin.ttf");
 		breakTextView.setTypeface(fontFace);
-		returnbButton.setTypeface(fontFace);
+//		returnbButton.setTypeface(fontFace);
 		Intent intent = getIntent();
 		rest = intent.getIntExtra("rest", 5);
+		showShake=intent.getBooleanExtra("showShake", true);
+		showTick=intent.getBooleanExtra("showTick", true);
 		rest =1;
 		timeSpan = rest * 60 * 1000;
 		breakProgressBar.setMax(rest*60);
@@ -83,6 +91,12 @@ public class BreakActivity extends Activity implements OnClickListener {
 		@Override
 		public void onFinish() {
 			// TODO 自动生成的方法存根
+			if (showShake) {
+				//开启震动
+				vibrator =(Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+				long [] pattern = {200,500,200,500,1200,500,200,500};   // 停止 开启 停止 开启  
+				vibrator.vibrate(pattern,-1);           //重复两次上面的pattern 如果只想震动一次，index设为-1   
+			}
 			returnbButton.setVisibility(View.VISIBLE);
 		}
 
@@ -111,6 +125,7 @@ public class BreakActivity extends Activity implements OnClickListener {
 								public void onClick(DialogInterface dialog,
 										int which) {
 									// TODO 自动生成的方法存根
+									time.cancel();
 									BreakActivity.this.finish();
 								}
 							})
