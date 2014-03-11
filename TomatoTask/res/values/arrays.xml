@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="TomatoTime">
+		<item>25分钟</item>
+		<item>35分钟</item>
+		<item>45分钟</item>
+        <item>60分钟</item>
+	</string-array>
+	<string-array name="TomatoTime_value">
+		<item>25</item>
+		<item>35</item>
+		<item>45</item>
+        <item>60</item>
+	</string-array>
+    
+        <string-array name="BreakTime">
+        <item>3分钟</item>
+        <item>5分钟</item>
+        <item>8分钟</item>
+        <item>10分钟</item>
+    </string-array>
+    <string-array name="BreakTime_value">
+        <item>3</item>
+        <item>5</item>
+        <item>8</item>
+        <item>10</item>
+    </string-array>
+</resources>

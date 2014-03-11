@@ -1,10 +1,8 @@
 package com.android.tomatotask;
 
 import android.os.Bundle;
-import android.preference.PreferenceFragment;
 import android.app.Activity;
 import android.content.SharedPreferences;
-import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -88,16 +86,6 @@ public class SettingFragment extends Fragment {
 
 	}
 
-	
-	
-//	 public static class PrefsFragement extends PreferenceFragment{  
-//	        @Override  
-//	        public void onCreate(Bundle savedInstanceState) {  
-//	            // TODO Auto-generated method stub  
-//	            super.onCreate(savedInstanceState);  
-//	            addPreferencesFromResource(R.xml.preferences);  
-//	        }  
-//	    } 
 	
 	
 	

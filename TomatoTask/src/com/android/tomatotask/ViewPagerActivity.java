@@ -37,7 +37,7 @@ public class ViewPagerActivity extends FragmentActivity {
 	
 	private TomatoFragment tomatoFragment;
 	private TaskFragment taskFragment;
-	private SettingFragment settingFragment;
+	private SettingPreferenceFragment settingPreferenceFragment;
 	private ViewPager m_vp;
 	//页面列表
 	private ArrayList<Fragment> fragmentList;
@@ -76,12 +76,12 @@ public class ViewPagerActivity extends FragmentActivity {
 //		pagerTitleStrip.setBackgroundColor(getResources().getColor(android.R.color.holo_blue_dark));
 		tomatoFragment = new TomatoFragment();
 		taskFragment = new TaskFragment();
-		settingFragment = new SettingFragment();
+		settingPreferenceFragment = new SettingPreferenceFragment();
 		
 		fragmentList = new ArrayList<Fragment>();
 		fragmentList.add(tomatoFragment);
 		fragmentList.add(taskFragment);
-		fragmentList.add(settingFragment);
+		fragmentList.add(settingPreferenceFragment);
 		
 	    titleList.add("番茄 ");
 	    titleList.add("任务");

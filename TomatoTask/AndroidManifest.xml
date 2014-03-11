@@ -19,7 +19,8 @@
         <activity android:name=".TomatoActivity"></activity>
         <activity android:name="com.android.tomatotask.Task.BaseActivity" />
         <activity android:name="com.android.tomatotask.Task.EditActivity" />
-        <activity android:name="com.android.tomatotask.Task.WriteActivity" />
+        <activity android:name="com.android.tomatotask.Task.WriteActivity" /> 
     </application>
-    <uses-permission android:name="android.permission.VIBRATE"/>
+     <uses-permission android:name="android.permission.VIBRATE"/>
+    <!--<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/> -->
 </manifest>

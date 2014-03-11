@@ -4,10 +4,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"><!-- android:background="@drawable/bg" -->
     <Button android:textColor="#000000" android:id="@id/topButton"
          android:paddingRight="200.0dip" 
-         android:background="@color/white"
+         android:background="@drawable/topbutton"
         android:layout_width="fill_parent" android:layout_height="55.0dip"
         android:textSize="30sp"
-        android:text="记录" /><!--   android:background="@drawable/topbutton" -->
+        android:text="记录" /><!--   android:background="@color/white" -->
     <Button android:textColor="#000000" android:id="@id/number"
          android:layout_width="55.0dip"
           android:background="@drawable/number"

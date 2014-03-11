@@ -1,21 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="时间设置">
-        <!-- <huahua.viewpager.SeekBarPreference
-            android:key="tomatoTime" android:title="番茄时间" android:dialogTitle="番茄时间"
-            android:persistent="true" />
-        <huahua.viewpager.SeekBarPreference
-            android:key="breakTime" android:title="休息时间" android:dialogTitle="休息时间"
-            android:persistent="true" /> -->
+        <ListPreference android:key="TomatoTime_value"
+            android:title="番茄时间" android:dialogTitle="选择" android:entries="@array/TomatoTime"
+            android:entryValues="@array/TomatoTime_value">
+        </ListPreference>
+        <ListPreference android:key="BreakTime_value"
+            android:title="休息时间" android:dialogTitle="选择" android:entries="@array/BreakTime"
+            android:entryValues="@array/BreakTime_value">
+        </ListPreference>
     </PreferenceCategory>
     <PreferenceCategory android:title="声音设置">
         <CheckBoxPreference android:key="startShake"
-            android:summary="是否开启震动" android:title="开启震动" />
-        <CheckBoxPreference android:key="startDiDa"
-            android:summary="是否开启滴答声" android:title="滴答声" />
-        <!-- <ListPreference android:key="overMusic" android:dialogTitle="完成提示音" 
-            android:entries="@array/entries_list_preference" android:entryValues="@array/entryvalues_list_preference" 
-            android:summary="" android:title="完成提示音" /> -->
+            android:title="震动" />
+<!--         <CheckBoxPreference android:key="startDiDa"
+            android:summary="是否开启滴答声" android:title="滴答声" /> -->
+        <RingtonePreference android:key="ringTone"
+            android:title="铃声" android:ringtoneType="all" android:showDefault="true"
+            android:showSilent="true" />
+    
+        <CheckBoxPreference android:key="developer_Mode"
+            android:title="开发者模式"
+            android:summary="以一分钟番茄进行计时"
+             />
     </PreferenceCategory>
+    
     <PreferenceCategory android:title="关于">
         <!-- This PreferenceScreen tag serves as a screen break (similar to page 
             break in word processing). Like for other preference types, we assign a key here 
@@ -27,12 +36,12 @@
                 android:summary="Mr.傅" />
             <Preference android:key="eMail" android:title="E-Mail"
                 android:summary="fuyuan1991@139.com" />
-            <Preference android:key="workDescription" android:title="作品说明"
-                android:summary="本应用为作者的第一款应用,如有不足之处,还望邮件支持:万分感谢" />
             <Preference android:key="supportAuthor" android:title="支持作者"
                 android:summary="支付宝:344280307@qq.com" />
             <Preference android:key="afflatusFrom" android:title="灵感来源"
                 android:summary="来源于一款名为“极简番茄”的应用" />
+            <Preference android:key="workDescription" android:title="作品说明"
+                android:summary="本应用为作者的第一款应用,如有不足之处,还望邮件告知，万分感谢！" />
         </PreferenceScreen>
     </PreferenceCategory>
 </PreferenceScreen>

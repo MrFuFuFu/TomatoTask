@@ -1,6 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context=".BreakActivity">
+    android:layout_height="match_parent" 
+    android:background="@drawable/breakimage"
+    tools:context=".BreakActivity">
     <ProgressBar android:id="@+id/breakBar"
         style="?android:attr/progressBarStyleHorizontal" android:layout_width="110dp"
         android:layout_height="50dp" android:layout_alignParentBottom="true"
