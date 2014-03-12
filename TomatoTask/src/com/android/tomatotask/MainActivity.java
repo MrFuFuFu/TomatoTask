@@ -53,7 +53,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	private int[] ID;
 	private boolean showShake = true;// Õğ¶¯
 	// private boolean startDiDa = true;// µÎ´ğÉù
-	private Uri uriRing;// ÁåÉù
+//	private Uri uriRing;// ÁåÉù
 
 	private Vibrator vibrator;
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">番茄Task</string>
+    <string name="app_name">番茄工作法</string>
     <string name="action_settings">设置</string>
     <string name="tomatocharSequence">新番茄开始,小宇宙爆发吧!骚年!!</string>
     <string name="EndTask">番茄结束</string>

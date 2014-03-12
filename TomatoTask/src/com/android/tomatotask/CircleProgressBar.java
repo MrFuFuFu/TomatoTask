@@ -4,15 +4,11 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Typeface;
-import android.graphics.Paint.Style;
 import android.graphics.RectF;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 public class CircleProgressBar extends View {
-	private final String TAG = "CircleProgressBar";
 	private int maxProgress = 10;//最大进度
 	private int progress = 0;//当前进度
 	private int progressStrokeWidth = 6;//线宽

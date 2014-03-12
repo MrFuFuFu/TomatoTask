@@ -10,14 +10,16 @@
             android:entryValues="@array/BreakTime_value">
         </ListPreference>
     </PreferenceCategory>
-    <PreferenceCategory android:title="声音设置">
+    <PreferenceCategory android:title="其他设置">
         <CheckBoxPreference android:key="startShake"
             android:title="震动" />
 <!--         <CheckBoxPreference android:key="startDiDa"
             android:summary="是否开启滴答声" android:title="滴答声" /> -->
-        <RingtonePreference android:key="ringTone"
+        <!-- <RingtonePreference android:key="ringTone"
             android:title="铃声" android:ringtoneType="all" android:showDefault="true"
-            android:showSilent="true" />
+            android:showSilent="true" /> -->
+            <Preference android:key="clearCount" android:title="清除计数"
+                android:summary="清除统计的番茄数" />
     
         <CheckBoxPreference android:key="developer_Mode"
             android:title="开发者模式"
@@ -32,16 +34,22 @@
         <PreferenceScreen android:key="screen_preference"
             android:title="关于" android:summary="作者以及作品说明">
             <!-- 你可以在这里放置更多的首选项内容，将被在下一个页面呈现出来 -->
+    <PreferenceCategory android:title="关于作者">
             <Preference android:key="aboutAuthor" android:title="作者"
                 android:summary="Mr.傅" />
             <Preference android:key="eMail" android:title="E-Mail"
                 android:summary="fuyuan1991@139.com" />
             <Preference android:key="supportAuthor" android:title="支持作者"
                 android:summary="支付宝:344280307@qq.com" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="关于作品">
             <Preference android:key="afflatusFrom" android:title="灵感来源"
                 android:summary="来源于一款名为“极简番茄”的应用" />
             <Preference android:key="workDescription" android:title="作品说明"
                 android:summary="本应用为作者的第一款应用,如有不足之处,还望邮件告知，万分感谢！" />
+            <Preference android:key="aboutTomatoTask" android:title="关于番茄工作法"
+                android:summary="点击进入：番茄工作法_百度百科" />
+    </PreferenceCategory>
         </PreferenceScreen>
     </PreferenceCategory>
 </PreferenceScreen>

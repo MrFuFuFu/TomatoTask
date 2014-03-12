@@ -3,17 +3,13 @@ package com.android.tomatotask;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.android.tomatotask.MainActivity.TimeCount;
 
-import android.R.integer;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Typeface;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Vibrator;
@@ -24,7 +20,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class BreakActivity extends Activity implements OnClickListener {
 	private TextView breakTextView;
@@ -59,7 +54,6 @@ public class BreakActivity extends Activity implements OnClickListener {
 		rest = intent.getIntExtra("rest", 5);
 		showShake=intent.getBooleanExtra("showShake", true);
 		showTick=intent.getBooleanExtra("showTick", true);
-		rest =1;
 		timeSpan = rest * 60 * 1000;
 		breakProgressBar.setMax(rest*60);
 		returnbButton.setOnClickListener(this);
