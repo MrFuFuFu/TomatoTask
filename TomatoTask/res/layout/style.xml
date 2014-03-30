@@ -8,11 +8,12 @@
         android:layout_height="27.0dip" android:layout_marginTop="8.0dip"
         android:layout_centerHorizontal="true" />
     <com.android.tomatotask.Task.TextViewLine
-        android:textSize="15.0sp" android:textColor="#ff000000" android:id="@id/changecontentview"
+         android:id="@id/changecontentview"
+         android:typeface="serif"
         android:background="@drawable/shape" android:layout_width="300.0dip"
         android:layout_height="wrap_content" android:minHeight="68.0dip"
         android:layout_below="@id/changedateview"
-        android:layout_centerHorizontal="true" android:lineSpacingExtra="6.0dip" />
+        android:layout_centerHorizontal="true" android:lineSpacingExtra="6.0dip" /><!-- android:textSize="15.0sp" android:textColor="#ff000000" -->
     <Button android:id="@id/stylebutton1" android:background="@drawable/stylebutton1"
         android:focusable="false" android:layout_width="27.0dip"
         android:layout_height="27.0dip" android:layout_marginLeft="7.0dip"

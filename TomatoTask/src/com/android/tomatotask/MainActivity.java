@@ -9,6 +9,7 @@ import java.util.Random;
 import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -19,6 +20,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.util.Log;
 import android.util.Printer;
@@ -39,8 +41,10 @@ public class MainActivity extends Activity implements OnClickListener {
 	protected Animation animation;
 	private CharSequence tomatocharSequence;
 	private CharSequence breakcharSequence;
+	private CharSequence[] arrCharSequences;
+	
 	private int timeSpan;
-	private final String TAG = "Main";
+	private final String TAG = "MAIN";
 	private int flag = 1;// 标志位：1:番茄未开始，2:番茄开始后的，3:番茄时间到同时休息时间未开始，4:休息时间开始后的，1:休息时间到番茄未开始
 	private int count = 0; // 统计任务数，考虑将统计的数据存到缓存当中去，同时记得写入文件。
 	private int percentTime = 0;// 设置的秒数，用来计算圆圈的百分比数。
@@ -52,8 +56,9 @@ public class MainActivity extends Activity implements OnClickListener {
 	private long exitTime = 0;
 	private int[] ID;
 	private boolean showShake = true;// 震动
-	// private boolean startDiDa = true;// 滴答声
-//	private Uri uriRing;// 铃声
+	private String showRing;// 铃声
+	MediaPlayer player;
+	// private Uri uriRing;// 铃声
 
 	private Vibrator vibrator;
 
@@ -90,7 +95,9 @@ public class MainActivity extends Activity implements OnClickListener {
 				.getString(R.string.tomatocharSequence));
 		breakcharSequence = (CharSequence) (getResources()
 				.getString(R.string.breakcharSequence));
-		//配置读取
+		arrCharSequences = getResources().getStringArray(R.array.TomatoStart_String);
+		
+		// 配置读取
 		setReader();
 
 		// startDiDa = myshPreferences.getBoolean("startDiDa", true);
@@ -123,6 +130,19 @@ public class MainActivity extends Activity implements OnClickListener {
 		stateFlag();
 
 	}
+	
+
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		super.onPause();
+		if (player != null) {
+			if (player.isPlaying()) {
+				player.stop();
+			}
+		}
+		Log.v("MAIN", "-------MainActivity---------onPause-------");
+	}
 
 	/**
 	 * 读取设置中的配置
@@ -139,6 +159,12 @@ public class MainActivity extends Activity implements OnClickListener {
 		rest = Integer.parseInt(myshPreferences.getString("BreakTime_value",
 				"25"));
 		showShake = myshPreferences.getBoolean("startShake", true);
+		showRing = myshPreferences.getString("pref_ringtone", "");
+		Log.v("MAIN",
+				"-------showRing--------"
+						+ myshPreferences.getString("pref_ringtone", "")
+						+ "-------");
+
 		// 开发者模式
 		if (myshPreferences.getBoolean("developer_Mode", false)) {
 			tick = 1;
@@ -184,6 +210,32 @@ public class MainActivity extends Activity implements OnClickListener {
 																					// 开启
 					vibrator.vibrate(pattern, -1); // 重复两次上面的pattern
 													// 如果只想震动一次，index设为-1
+				}
+				if (showRing != "") {
+					Log.v(TAG, "我进来了我进来了");
+					//开启铃声
+					player = new MediaPlayer();
+					Uri uri = Uri.parse(showRing);
+					
+					try {
+						player.setDataSource(MainActivity.this, uri);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					final AudioManager audioManager = (AudioManager) MainActivity.this
+							.getSystemService(Context.AUDIO_SERVICE);
+					if (audioManager.getStreamVolume(AudioManager.STREAM_RING) != 0) {
+						player.setAudioStreamType(AudioManager.STREAM_RING);
+						Log.v(TAG, AudioManager.STREAM_RING +"");
+						player.setLooping(false);
+						try {
+							player.prepare();
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						player.start();
+					}
 				}
 
 				// 实例化SharedPreferences对象（第一步）
@@ -315,15 +367,15 @@ public class MainActivity extends Activity implements OnClickListener {
 		super.onRestart();
 		Log.v("MAIN",
 				"-------MainActivity---------onRestart----Do Something----");
-//		SharedPreferences mySharedPreferences = getSharedPreferences("test",
-//				Activity.MODE_PRIVATE);
-//		tick = mySharedPreferences.getInt("tick", 25);
-//		rest = mySharedPreferences.getInt("rest", 5);
-//		longrest = mySharedPreferences.getInt("longrest", 15);
+		// SharedPreferences mySharedPreferences = getSharedPreferences("test",
+		// Activity.MODE_PRIVATE);
+		// tick = mySharedPreferences.getInt("tick", 25);
+		// rest = mySharedPreferences.getInt("rest", 5);
+		// longrest = mySharedPreferences.getInt("longrest", 15);
 		setReader();
 		progressBar.setMaxProgress(tick * 60);
 		// 震动和声音设置
-//		showShake = mySharedPreferences.getBoolean("showshake", true);
+		// showShake = mySharedPreferences.getBoolean("showshake", true);
 		// startDiDa = mySharedPreferences.getBoolean("showtick", true);
 		if (flag == 4) {
 			flag = 1;
@@ -376,7 +428,10 @@ public class MainActivity extends Activity implements OnClickListener {
 			// timeSpan = 10 * 1000;
 			// percentTime = 10;
 			time = new TimeCount(timeSpan, 1000);// 构造CountDownTimer对象
-			Toast.makeText(MainActivity.this, tomatocharSequence,
+			//随机获取arrays.xml中的数据
+			int randow = new Random().nextInt(arrCharSequences.length);
+//			CharSequence charSequence 
+			Toast.makeText(MainActivity.this, arrCharSequences[randow],
 					Toast.LENGTH_SHORT).show();
 			flag = 2;// 番茄开始后
 			time.start();
@@ -387,7 +442,7 @@ public class MainActivity extends Activity implements OnClickListener {
 					BreakActivity.class);
 			intent.putExtra("rest", rest);
 			intent.putExtra("showShake", showShake);
-			// intent.putExtra("showTick", startDiDa);
+			 intent.putExtra("showRing", showRing);
 			flag = 4;
 			startActivity(intent);
 			break;
@@ -396,6 +451,38 @@ public class MainActivity extends Activity implements OnClickListener {
 			break;
 		}
 	}
+//	/**
+//	 * onConfigurationChanged
+//	 * the package:android.content.res.Configuration.
+//	 * @param newConfig, The new device configuration.
+//	 * 当设备配置信息有改动（比如屏幕方向的改变，实体键盘的推开或合上等）时，
+//	 * 并且如果此时有activity正在运行，系统会调用这个函数。
+//	 * 注意：onConfigurationChanged只会监测应用程序在AnroidMainifest.xml中通过
+//	 * android:configChanges="xxxx"指定的配置类型的改动；
+//	 * 而对于其他配置的更改，则系统会onDestroy()当前Activity，然后重启一个新的Activity实例。
+//	 */
+//	@Override
+//	public void onConfigurationChanged(Configuration newConfig) {    
+//	    super.onConfigurationChanged(newConfig);
+//	    // 检测屏幕的方向：纵向或横向
+//	    if (this.getResources().getConfiguration().orientation 
+//	            == Configuration.ORIENTATION_LANDSCAPE) {
+//	        //当前为横屏， 在此处添加额外的处理代码
+//	    }
+//	    else if (this.getResources().getConfiguration().orientation 
+//	            == Configuration.ORIENTATION_PORTRAIT) {
+//	        //当前为竖屏， 在此处添加额外的处理代码
+//	    }
+//	    //检测实体键盘的状态：推出或者合上    
+//	    if (newConfig.hardKeyboardHidden 
+//	            == Configuration.HARDKEYBOARDHIDDEN_NO){ 
+//	        //实体键盘处于推出状态，在此处添加额外的处理代码
+//	    } 
+//	    else if (newConfig.hardKeyboardHidden
+//	            == Configuration.HARDKEYBOARDHIDDEN_YES){ 
+//	        //实体键盘处于合上状态，在此处添加额外的处理代码
+//	    }
+//	}
 
 	@Override
 	protected void onResume() {
@@ -411,12 +498,6 @@ public class MainActivity extends Activity implements OnClickListener {
 		Log.v("MAIN", "-------MainActivity---------onStop-------");
 	}
 
-	@Override
-	protected void onPause() {
-		// TODO Auto-generated method stub
-		super.onPause();
-		Log.v("MAIN", "-------MainActivity---------onPause-------");
-	}
 
 	@Override
 	protected void onDestroy() {

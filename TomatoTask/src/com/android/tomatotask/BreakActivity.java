@@ -4,12 +4,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Vibrator;
@@ -31,8 +35,9 @@ public class BreakActivity extends Activity implements OnClickListener {
 	private long exitTime = 0;
 
 	private boolean showShake = true;// 震动
-	private boolean showTick = true;// 滴答声
+	private String showRing; // 铃声
 	private Vibrator vibrator;
+	MediaPlayer player;
 
 	public BreakActivity() {
 		// TODO 自动生成的构造函数存根
@@ -53,13 +58,26 @@ public class BreakActivity extends Activity implements OnClickListener {
 		Intent intent = getIntent();
 		rest = intent.getIntExtra("rest", 5);
 		showShake=intent.getBooleanExtra("showShake", true);
-		showTick=intent.getBooleanExtra("showTick", true);
+		showRing=intent.getStringExtra("showRing");
+		Log.v("MAIN", showRing+"----------------showRing----");
 		timeSpan = rest * 60 * 1000;
 		breakProgressBar.setMax(rest*60);
 		returnbButton.setOnClickListener(this);
 		time = new TimeCount(timeSpan, 1000);// 构造CountDownTimer对象
 		time.start();
 		
+	}
+
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		super.onPause();
+		if (player != null) {
+			if (player.isPlaying()) {
+				player.stop();
+			}
+		}
+		Log.v("MAIN", "-------BreakActivity---------onPause-------");
 	}
 	
 	class TimeCount extends CountDownTimer {
@@ -90,6 +108,32 @@ public class BreakActivity extends Activity implements OnClickListener {
 				vibrator =(Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
 				long [] pattern = {200,500,200,500,1200,500,200,500};   // 停止 开启 停止 开启  
 				vibrator.vibrate(pattern,-1);           //重复两次上面的pattern 如果只想震动一次，index设为-1   
+			}
+			if (showRing != "") {
+				Log.v("MAIN", "我进来了我进来了");
+				//开启铃声
+				player = new MediaPlayer();
+				Uri uri = Uri.parse(showRing);
+				
+				try {
+					player.setDataSource(BreakActivity.this, uri);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				final AudioManager audioManager = (AudioManager) BreakActivity.this
+						.getSystemService(Context.AUDIO_SERVICE);
+				if (audioManager.getStreamVolume(AudioManager.STREAM_RING) != 0) {
+					player.setAudioStreamType(AudioManager.STREAM_RING);
+					Log.v("MAIN", AudioManager.STREAM_RING +"");
+					player.setLooping(false);
+					try {
+						player.prepare();
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					player.start();
+				}
 			}
 			returnbButton.setVisibility(View.VISIBLE);
 		}
@@ -160,12 +204,6 @@ public class BreakActivity extends Activity implements OnClickListener {
 		Log.v("MAIN", "-------BreakActivity---------onStop-------");
 	}
 
-	@Override
-	protected void onPause() {
-		// TODO Auto-generated method stub
-		super.onPause();
-		Log.v("MAIN", "-------BreakActivity---------onPause-------");
-	}
 
 	@Override
 	protected void onDestroy() {

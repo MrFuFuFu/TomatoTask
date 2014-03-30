@@ -18,6 +18,12 @@
         <!-- <RingtonePreference android:key="ringTone"
             android:title="铃声" android:ringtoneType="all" android:showDefault="true"
             android:showSilent="true" /> -->
+            <Preference         
+                        android:key="pref_ringtone"
+                        android:ringtoneType="notification"
+                        android:title="提示音"
+                        android:summary="结束提示音"
+               />
             <Preference android:key="clearCount" android:title="清除计数"
                 android:summary="清除统计的番茄数" />
     

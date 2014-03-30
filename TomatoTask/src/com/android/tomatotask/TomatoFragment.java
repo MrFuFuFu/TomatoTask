@@ -12,6 +12,7 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,6 +32,8 @@ public class TomatoFragment extends Fragment{
 	private int allTomatoCount;
 
 	private Vibrator vibrator;
+	SharedPreferences myshPreferences;
+	int tick;
 	
 	public TomatoFragment() {
 		// TODO 自动生成的构造函数存根
@@ -51,7 +54,7 @@ public class TomatoFragment extends Fragment{
 		tomatoTxtView.setTypeface(fontFace);
 		todayTomatoCountTextView.setTypeface(fontFace);
 		allTomatoCountTextView.setTypeface(fontFace);
-		
+
 
 
 		Log.i("MAIN", "++++++++TomatoFragment++++++++onCreate++++++++");
@@ -105,6 +108,27 @@ public class TomatoFragment extends Fragment{
 		Log.v("MAIN", "----TomatoFragment---todayTomatoCount---------"+todayTomatoCount+"-------");
 		Log.v("MAIN", "----TomatoFragment---allTomatoCount---------"+allTomatoCount+"-------");
 		Log.v("MAIN", "----TomatoFragment---dateStr---------"+dateStr+"-------");
+		
+		//修改番茄图片
+		myshPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+		tick = Integer.parseInt(myshPreferences.getString("TomatoTime_value","25"));
+		switch (tick) {
+		case 25:
+			imageView.setImageResource(R.drawable.tomato_25);
+			break;
+		case 35:
+			imageView.setImageResource(R.drawable.tomato_35);
+			break;
+		case 45:
+			imageView.setImageResource(R.drawable.tomato_45);
+			break;
+		case 60:
+			imageView.setImageResource(R.drawable.tomato_60);
+			break;
+
+		default:
+			break;
+		}
 		
 	}
 	

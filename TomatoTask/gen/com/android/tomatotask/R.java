@@ -22,6 +22,7 @@ public final class R {
     public static final class array {
         public static final int BreakTime=0x7f0c0002;
         public static final int BreakTime_value=0x7f0c0003;
+        public static final int TomatoStart_String=0x7f0c0004;
         public static final int TomatoTime=0x7f0c0000;
         public static final int TomatoTime_value=0x7f0c0001;
     }
@@ -70,6 +71,10 @@ public final class R {
         public static final int smallbutton2=0x7f02000a;
         public static final int stylebutton1=0x7f02000b;
         public static final int stylebutton2=0x7f02000c;
+        public static final int tomato_25=0x7f020016;
+        public static final int tomato_35=0x7f020017;
+        public static final int tomato_45=0x7f020018;
+        public static final int tomato_60=0x7f020019;
         public static final int topbutton=0x7f02000d;
     }
     public static final class id {
